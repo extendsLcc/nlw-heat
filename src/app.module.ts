@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { PrismaModule } from 'nestjs-prisma';
+import { AuthUserModule } from './AuthUser/AuthUser.module';
 
 @Module({
   imports: [
@@ -11,6 +12,7 @@ import { PrismaModule } from 'nestjs-prisma';
         },
       },
     }),
+    AuthUserModule,
   ],
   controllers: [],
   providers: [],
