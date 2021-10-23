@@ -1,15 +1,15 @@
 import { Test, TestingModule } from '@nestjs/testing';
-import { GithubAuthUserController } from './GithubAuthUser.controller';
+import { GithubAuthController } from './GithubAuth.controller';
 
 describe('AuthUserController', () => {
-  let controller: GithubAuthUserController;
+  let controller: GithubAuthController;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
-      controllers: [GithubAuthUserController],
+      controllers: [GithubAuthController],
     }).compile();
 
-    controller = module.get<GithubAuthUserController>(GithubAuthUserController);
+    controller = module.get<GithubAuthController>(GithubAuthController);
   });
 
   it('should be defined', () => {

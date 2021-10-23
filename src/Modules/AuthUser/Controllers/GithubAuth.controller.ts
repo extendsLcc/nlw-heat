@@ -1,16 +1,8 @@
-import {
-  Controller,
-  Get,
-  Query,
-  Res,
-  Request,
-  UseGuards,
-} from '@nestjs/common';
+import { Controller, Get, Query, Res } from '@nestjs/common';
 import { PrismaService } from 'nestjs-prisma';
-import { JwtAuthGuard } from '../JwtAuth.guard';
 
 @Controller('/auth')
-export class GithubAuthUserController {
+export class GithubAuthController {
   constructor(protected readonly prisma: PrismaService) {}
 
   @Get('/github')

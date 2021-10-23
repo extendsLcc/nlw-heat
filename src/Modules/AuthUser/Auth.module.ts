@@ -1,15 +1,16 @@
 import { Module } from '@nestjs/common';
-import { GithubAuthUserController } from './Controllers/GithubAuthUser.controller';
-import { AuthUserController } from './Controllers/AuthUser.controller';
-import { AuthService } from './Services/Auth.service';
 import { HttpModule } from '@nestjs/axios';
-import { UserModule } from '../Users/User.module';
 import { JwtModule } from '@nestjs/jwt';
 import { PassportModule } from '@nestjs/passport';
-import { jwtOptions } from './jwt.config';
-import { GithubAuthService } from './Services/GithubAuth.service';
+
 import { JwtAuthGuard } from './JwtAuth.guard';
+import { jwtOptions } from './jwt.config';
 import { JwtStrategy } from './Jwt.strategy';
+import { AuthService } from './Services/Auth.service';
+import { GithubAuthService } from './Services/GithubAuth.service';
+import { UserModule } from '../Users/User.module';
+import { AuthUserController } from './Controllers/AuthUser.controller';
+import { GithubAuthController } from './Controllers/GithubAuth.controller';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { JwtStrategy } from './Jwt.strategy';
     PassportModule,
     JwtModule.register(jwtOptions),
   ],
-  controllers: [GithubAuthUserController, AuthUserController],
+  controllers: [GithubAuthController, AuthUserController],
   providers: [AuthService, GithubAuthService, JwtAuthGuard, JwtStrategy],
   exports: [AuthService, JwtAuthGuard],
 })
