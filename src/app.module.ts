@@ -3,7 +3,7 @@ import { PrismaModule } from 'nestjs-prisma';
 import { AuthModule } from './Modules/AuthUser/Auth.module';
 import { MessagesModule } from './Modules/Messages/Messages.module';
 import { UserModule } from './Modules/Users/User.module';
-import { EventsGateway } from './Modules/Events/Events.gateway';
+import { EventsGateway } from './Modules/Events.gateway/Events.gateway';
 
 @Module({
   imports: [
