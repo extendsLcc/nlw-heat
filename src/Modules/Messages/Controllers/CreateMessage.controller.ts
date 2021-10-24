@@ -14,10 +14,7 @@ export class CreateMessageController {
   constructor(protected createMessageService: CreateMessageService) {}
 
   @Post()
-  async createMessage(
-    @Body() createMessageDto: CreateMessageDto,
-    @Request() request,
-  ) {
+  async handle(@Body() createMessageDto: CreateMessageDto, @Request() request) {
     const { text } = createMessageDto;
     const { user } = request;
     return await this.createMessageService.execute(text, user.id);
