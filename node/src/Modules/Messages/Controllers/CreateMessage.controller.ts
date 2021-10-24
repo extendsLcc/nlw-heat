@@ -5,7 +5,7 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class CreateMessageDto {
   @ApiProperty()
-  text: string;
+  message: string;
 }
 
 @UseGuards(JwtAuthGuard)
@@ -15,8 +15,8 @@ export class CreateMessageController {
 
   @Post()
   async handle(@Body() createMessageDto: CreateMessageDto, @Request() request) {
-    const { text } = createMessageDto;
+    const { message } = createMessageDto;
     const { user } = request;
-    return await this.createMessageService.execute(text, user.id);
+    return await this.createMessageService.execute(message, user.id);
   }
 }
