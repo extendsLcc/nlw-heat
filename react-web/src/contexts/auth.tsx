@@ -49,13 +49,14 @@ export function AuthProvider(props: AuthProvider) {
     const { accessToken, user } = response.data;
 
     localStorage.setItem(LOCAL_STORAGE_KEY, accessToken);
+    api.defaults.headers.common.authorization = `Bearer ${accessToken}`;
     setUser(user);
   }
 
   function signOut() {
     setUser(null);
     localStorage.removeItem(LOCAL_STORAGE_KEY);
-    api.defaults.headers.common.authorization = '';
+    // api.defaults.headers.common.authorization = '';
   }
 
   useEffect(() => {
