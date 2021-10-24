@@ -9,7 +9,7 @@ export class GetLast3MessagesService {
     return await this.prisma.message.findMany({
       take: 3,
       orderBy: {
-        createdAt: 'asc',
+        createdAt: 'desc',
       },
       include: {
         user: true,
